@@ -70,7 +70,7 @@ const Text = styled.div`
     `}
 `;
 
-const TodoItem = ({ todo, onCheck }) => {
+const TodoItem = ({ todo, onCheck, onUpdateToggle, onChangeSelectedTodo }) => {
   const { id, checked, text } = todo;
   return (
     <TodoItemBox checked={checked}>
@@ -91,7 +91,15 @@ const TodoItem = ({ todo, onCheck }) => {
           />
         )}
       </CheckBox>
-      <Text checked={checked}>{text}</Text>
+      <Text
+        checked={checked}
+        onClick={() => {
+          onChangeSelectedTodo(todo);
+          onUpdateToggle();
+        }}
+      >
+        {text}
+      </Text>
       <Delete>
         <RiDeleteBack2Line />
       </Delete>

@@ -52,9 +52,7 @@ const Button = styled.button`
   align-items: center;
 `;
 
-function TodoCreate({ onCreateTodo }) {
-  const [value, setValue] = useState("");
-
+function TodoCreate({ value, setValue, onCreateTodo }) {
   const onChange = (e) => {
     setValue(e.target.value);
   };

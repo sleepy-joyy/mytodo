@@ -15,12 +15,18 @@ const TodolistBox = styled.div`
   }
 `;
 
-function TodoList({ todos, onCheck }) {
+function TodoList({ todos, onCheck, onUpdateToggle, onChangeSelectedTodo }) {
   return (
     <TodolistBox>
       <ul>
         {todos.map((todo) => (
-          <TodoItem todo={todo} key={todo.id} onCheck={onCheck}></TodoItem>
+          <TodoItem
+            todo={todo}
+            key={todo.id}
+            onCheck={onCheck}
+            onUpdateToggle={onUpdateToggle}
+            onChangeSelectedTodo={onChangeSelectedTodo}
+          ></TodoItem>
         ))}
       </ul>
     </TodolistBox>

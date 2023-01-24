@@ -9,6 +9,7 @@ import TodoNav from "./component/TodoNav";
 import TodoHead from "./component/TodoHead";
 import TodoList from "./component/TodoList";
 import TodoCreate from "./component/TodoCreate";
+import TodoUpdate from "./component/TodoUpdate";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -17,7 +18,10 @@ body {
 `;
 
 function App() {
-  let [todos, setToods] = useState([
+  const [selectedTodo, setSelectedTodo] = useState(null);
+  const [updateToggle, setupdateToggle] = useState(false);
+  const [value, setValue] = useState("");
+  const [todos, setToods] = useState([
     {
       id: 1,
       text: "상세페이지 UX개선",
@@ -57,6 +61,14 @@ function App() {
       )
     );
   };
+
+  const onUpdateToggle = () => {
+    setupdateToggle((prev) => !prev);
+  };
+
+  const onChangeSelectedTodo = (todo) => {
+    setSelectedTodo(todo);
+  };
   return (
     <>
       <GlobalStyle />
@@ -64,8 +76,25 @@ function App() {
         <TodoTemplate>
           <TodoNav />
           <TodoHead ttlTodo={todos.length} leftTodo={left} />
-          <TodoList todos={todos} onCheck={onCheck} />
-          <TodoCreate onCreateTodo={onCreateTodo} />
+          <TodoList
+            todos={todos}
+            onCheck={onCheck}
+            onUpdateToggle={onUpdateToggle}
+            onChangeSelectedTodo={onChangeSelectedTodo}
+          />
+          {updateToggle && (
+            <TodoUpdate
+              value={value}
+              setValue={setValue}
+              onUpdateToggle={onUpdateToggle}
+              selectedTodo={selectedTodo}
+            />
+          )}
+          <TodoCreate
+            value={value}
+            setValue={setValue}
+            onCreateTodo={onCreateTodo}
+          />
         </TodoTemplate>
       </div>
     </>

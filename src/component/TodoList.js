@@ -15,7 +15,13 @@ const TodolistBox = styled.div`
   }
 `;
 
-function TodoList({ todos, onCheck, onUpdateToggle, onChangeSelectedTodo }) {
+function TodoList({
+  todos,
+  onCheck,
+  onDelete,
+  onUpdateToggle,
+  onChangeSelectedTodo,
+}) {
   return (
     <TodolistBox>
       <ul>
@@ -26,6 +32,7 @@ function TodoList({ todos, onCheck, onUpdateToggle, onChangeSelectedTodo }) {
             onCheck={onCheck}
             onUpdateToggle={onUpdateToggle}
             onChangeSelectedTodo={onChangeSelectedTodo}
+            onDelete={onDelete}
           ></TodoItem>
         ))}
       </ul>

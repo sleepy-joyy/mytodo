@@ -69,6 +69,11 @@ function App() {
   const onChangeSelectedTodo = (todo) => {
     setSelectedTodo(todo);
   };
+
+  const onDelete = (id) => {
+    setToods((todos) => todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <>
       <GlobalStyle />
@@ -81,6 +86,7 @@ function App() {
             onCheck={onCheck}
             onUpdateToggle={onUpdateToggle}
             onChangeSelectedTodo={onChangeSelectedTodo}
+            onDelete={onDelete}
           />
           {updateToggle && (
             <TodoUpdate

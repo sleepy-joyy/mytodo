@@ -5,10 +5,7 @@ import { RxBox } from "react-icons/rx";
 import { CgCheckR } from "react-icons/cg";
 
 const Delete = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
+  font-size: 25px;
   padding-right: 15px;
   color: #dee2e6;
   cursor: pointer;
@@ -42,22 +39,22 @@ const TodoItemBox = styled.div`
 `;
 
 const CheckBox = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
   color: white;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
 `;
 
 const Text = styled.div`
   flex: 1;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 600;
   color: #e3e6e8;
   ${(props) =>
@@ -65,8 +62,8 @@ const Text = styled.div`
     css`
       color: #ced4da;
       text-decoration: line-through;
-      font-size: 20px;
-      font-weight: 300;
+      font-size: 26px;
+      font-weight: 400;
     `}
 `;
 

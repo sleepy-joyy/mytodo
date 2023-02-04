@@ -3,7 +3,7 @@ import "./App.css";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import bg from "./bg.jpg";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import TodoTemplate from "./component/TodoTemplate";
 import TodoNav from "./component/TodoNav";
 import TodoHead from "./component/TodoHead";
@@ -12,8 +12,15 @@ import TodoCreate from "./component/TodoCreate";
 import TodoUpdate from "./component/TodoUpdate";
 
 const GlobalStyle = createGlobalStyle`
+* {
+  font-family:'GangwonEduSaeeum_OTFMediumA';
+;
+}
 body {
   background-image: url(${bg});
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 `;
 
@@ -92,8 +99,10 @@ function App() {
             <TodoUpdate
               value={value}
               setValue={setValue}
+              setToods={setToods}
               onUpdateToggle={onUpdateToggle}
               selectedTodo={selectedTodo}
+              // onUpdate={onUpdate}
             />
           )}
           <TodoCreate

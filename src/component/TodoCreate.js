@@ -23,7 +23,8 @@ const InsertForm = styled.form`
 const Input = styled.input`
   width: 90%;
   background: transparent;
-  padding: 12px;
+  min-height: 50px;
+  line-height: 50px;
   border-style: solid hidden solid;
   border-top: 1px solid rgba(234, 237, 240, 0.35);
   border-bottom: 1px solid rgba(234, 237, 240, 0.35);
@@ -32,19 +33,28 @@ const Input = styled.input`
   color: white;
   ::placeholder {
     color: white;
+    font-family: "GangwonEduSaeeum_OTFMediumA";
+    font-size: 25px;
+  }
+  &:focus {
+    outline: 2px solid rgba(200, 168, 157, 0.41);
+    color: white;
+    font-family: "GangwonEduSaeeum_OTFMediumA";
+    font-weight: 700;
+    font-size: 25px;
   }
 `;
 
 const Button = styled.button`
   background: transparent;
-  border-style: solid hidden solid;
-  border-top: 1px solid rgba(234, 237, 240, 0.35);
-  border-bottom: 1px solid rgba(234, 237, 240, 0.35);
+  border-color: rgba(234, 237, 240, 0.35);
+  border-radius: 10px;
+  margin-left: 20px;
   width: 50px;
-  height: 41px;
+  height: 50px;
   cursor: pointer;
   text-align: center;
-  font-size: 23px;
+  font-size: 25px;
   color: white;
   position: relative;
   z-index: 20;
@@ -66,7 +76,11 @@ function TodoCreate({ value, setValue, onCreateTodo }) {
   return (
     <CreateFormPositioner>
       <InsertForm onSubmit={onSubmit}>
-        <Input placeholder="새로운 할 일" value={value} onChange={onChange} />
+        <Input
+          placeholder=" 새로운 할일 🤓"
+          value={value}
+          onChange={onChange}
+        />
         <Button type="submit">
           <BiPencil />
         </Button>

@@ -5,20 +5,19 @@ import { faAngleLeft, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const TodoNavigation = styled.nav`
   width: auto;
-  height: 60px;
+  height: 65px;
   background-color: rgba(255, 255, 255, 0.1);
   display: inline-block;
   color: white;
   border-radius: 15px 15px 0 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-top: 48px;
 
   h2 {
-    padding-left: 20px;
-    font-size: 24px;
-    text-align: left;
-    align-items: center;
+    padding-left: 25px;
+    font-size: 40px;
   }
 
   .icon {

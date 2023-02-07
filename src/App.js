@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
@@ -28,25 +28,45 @@ function App() {
   const [selectedTodo, setSelectedTodo] = useState(null);
   const [updateToggle, setupdateToggle] = useState(false);
   const [value, setValue] = useState("");
-  const [todos, setToods] = useState([
-    {
-      id: 1,
-      text: "상세페이지 UX개선",
-      checked: true,
-    },
-    {
-      id: 2,
-      text: "강아지 산책",
-      checked: false,
-    },
-    {
-      id: 3,
-      text: "줌미팅 10AM",
-      checked: false,
-    },
-  ]);
+  // const [todos, setToods] = useState([
+  //   {
+  //     id: 1,
+  //     text: "상세페이지 UX개선",
+  //     checked: true,
+  //   },
+  //   {
+  //     id: 2,
+  //     text: "강아지 산책",
+  //     checked: false,
+  //   },
+  //   {
+  //     id: 3,
+  //     text: "줌미팅 10AM",
+  //     checked: false,
+  //   },
+  // ]);
+  const [todos, setToods] = useState([]);
+
+  useEffect(() => {
+    fetch("/todos")
+      .then((res) => res.json())
+      .then((todoData) => setToods(todoData));
+  }, []);
 
   let left = todos.filter((todo) => todo.checked === false).length;
+
+  // const onCreateTodo = (text) => {
+  //   if (text === "") {
+  //     return alert("할 일을 입력해 주세요");
+  //   } else {
+  //     const todo = {
+  //       id: todos.length + 1,
+  //       text,
+  //       checked: false,
+  //     };
+  //     setToods((todos) => todos.concat(todo));
+  //   }
+  // };
 
   const onCreateTodo = (text) => {
     if (text === "") {
@@ -57,16 +77,65 @@ function App() {
         text,
         checked: false,
       };
-      setToods((todos) => todos.concat(todo));
+
+      fetch("/todos", {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(todo),
+      })
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            throw Error("투두 생성 실패ㅠㅠ");
+          }
+        })
+        .then((jsonData) => {
+          setToods([...todos, jsonData]);
+        });
     }
   };
 
+  // const onCheck = (id) => {
+  //   setToods((todos) =>
+  //     todos.map((todo) =>
+  //       todo.id === id ? { ...todo, checked: !todo.checked } : todo
+  //     )
+  //   );
+  // };
+
   const onCheck = (id) => {
-    setToods((todos) =>
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, checked: !todo.checked } : todo
-      )
-    );
+    const index = todos.findIndex((obj) => obj.id === id);
+    const checked = todos[index].checked;
+    console.log(checked);
+    const updated = { checked: !checked };
+    console.log(updated);
+
+    fetch(`/todos/${id}`, {
+      method: "patch",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(updated),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw Error("완료여부 변경실패ㅠㅠ");
+        }
+      })
+      .then((jsonData) => {
+        setToods([jsonData]);
+      });
+
+    // setToods((todos) =>
+    //   todos.map((todo) =>
+    //     todo.id === id ? { ...todo, checked: !todo.checked } : todo
+    //   )
+    // );
   };
 
   const onUpdateToggle = () => {

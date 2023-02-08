@@ -46,15 +46,17 @@ function App() {
   //   },
   // ]);
   const [todos, setToods] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     fetch("/todos")
       .then((res) => res.json())
       .then((todoData) => setToods(todoData));
-  }, []);
+  }, [refresh]);
 
   let left = todos.filter((todo) => todo.checked === false).length;
 
+  //! 할일생성하기
   // const onCreateTodo = (text) => {
   //   if (text === "") {
   //     return alert("할 일을 입력해 주세요");
@@ -67,7 +69,6 @@ function App() {
   //     setToods((todos) => todos.concat(todo));
   //   }
   // };
-
   const onCreateTodo = (text) => {
     if (text === "") {
       return alert("할 일을 입력해 주세요");
@@ -98,6 +99,7 @@ function App() {
     }
   };
 
+  //! 완료 여부 변경하기
   // const onCheck = (id) => {
   //   setToods((todos) =>
   //     todos.map((todo) =>
@@ -105,31 +107,27 @@ function App() {
   //     )
   //   );
   // };
-
   const onCheck = (id) => {
     const index = todos.findIndex((obj) => obj.id === id);
     const checked = todos[index].checked;
-    console.log(checked);
-    const updated = { checked: !checked };
-    console.log(updated);
+
+    const updated = {
+      checked: !checked,
+    };
 
     fetch(`/todos/${id}`, {
-      method: "patch",
+      method: "PATCH",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(updated),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw Error("완료여부 변경실패ㅠㅠ");
-        }
-      })
-      .then((jsonData) => {
-        setToods([jsonData]);
-      });
+    }).then((res) => {
+      if (res.ok) {
+        setRefresh((prev) => !prev);
+      } else {
+        throw Error("완료여부 변경실패ㅠㅠ");
+      }
+    });
 
     // setToods((todos) =>
     //   todos.map((todo) =>
@@ -147,7 +145,14 @@ function App() {
   };
 
   const onDelete = (id) => {
-    setToods((todos) => todos.filter((todo) => todo.id !== id));
+    fetch(`/todos/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        const updated = todos.filter((todo) => todo.id !== id);
+        setToods(updated);
+      }
+    });
   };
 
   return (
@@ -171,6 +176,7 @@ function App() {
               setToods={setToods}
               onUpdateToggle={onUpdateToggle}
               selectedTodo={selectedTodo}
+              setRefresh={setRefresh}
               // onUpdate={onUpdate}
             />
           )}

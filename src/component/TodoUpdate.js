@@ -120,6 +120,7 @@ function TodoUpdate({
   setValue,
   selectedTodo,
   setToods,
+  setRefresh,
 }) {
   useEffect(() => {
     if (selectedTodo) {
@@ -132,11 +133,24 @@ function TodoUpdate({
   };
 
   const onUpdate = (id, text) => {
-    setToods((todos) =>
-      todos.map((todo) => (todo.id === id ? { ...todo, text } : todo))
-    );
-    onUpdateToggle();
-    setValue("");
+    const editedTodo = { text };
+    fetch(`/todos/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(editedTodo),
+    }).then((res) => {
+      if (res.ok) {
+        setToods((todos) =>
+          todos.map((todo) => (todo.id === id ? { ...todo, text } : todo))
+        );
+        onUpdateToggle();
+        setValue("");
+      } else {
+        throw Error("완료여부 변경실패ㅠㅠ");
+      }
+    });
   };
 
   return (
@@ -147,7 +161,13 @@ function TodoUpdate({
           onUpdate(selectedTodo.id, value);
         }}
       >
-        <MdClose id="xIcon" onClick={onUpdateToggle} />
+        <MdClose
+          id="xIcon"
+          onClick={() => {
+            onUpdateToggle();
+            setValue("");
+          }}
+        />
         <h3> 업데이트할 항목 😎 </h3>
         <UpdateInput
           value={value}

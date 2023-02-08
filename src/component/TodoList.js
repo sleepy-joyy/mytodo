@@ -7,6 +7,7 @@ const TodolistBox = styled.div`
   padding: 10px;
   overflow-y: auto; //내용이 넘칠때만 스크롤바표시
   /* background-color: gray; */
+  margin-bottom: 33%;
 
   ul {
     list-style: none;

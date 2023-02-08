@@ -83,14 +83,14 @@ const TodoItem = ({
           <CgCheckR
             checked={checked}
             onClick={() => {
-              onCheck(id);
+              onCheck(todo.id);
             }}
           />
         ) : (
           <RxBox
             checked={checked}
             onClick={() => {
-              onCheck(id);
+              onCheck(todo.id);
             }}
           />
         )}

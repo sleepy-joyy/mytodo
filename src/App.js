@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-import bg from "./bg.jpg";
 // import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import TodoTemplate from "./component/TodoTemplate";
 import TodoNav from "./component/TodoNav";
@@ -13,11 +12,26 @@ import TodoUpdate from "./component/TodoUpdate";
 
 const GlobalStyle = createGlobalStyle`
 * {
-  font-family:'GangwonEduSaeeum_OTFMediumA';
+  font-family:'Pretendard';
 ;
 }
 body {
-  background-image: url(${bg});
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
   display:flex;
   justify-content:center;
   align-items:center;

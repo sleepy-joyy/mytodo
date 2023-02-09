@@ -17,7 +17,7 @@ const TodoNavigation = styled.nav`
 
   h2 {
     padding-left: 25px;
-    font-size: 40px;
+    font-size: 2rem;
   }
 
   .icon {
@@ -43,7 +43,7 @@ function TodoNav() {
           <FontAwesomeIcon icon={faAngleLeft} size="2x" className="iconLeft" />
         </>
       ) : null}
-      <h2>Peach TODO</h2>
+      <h2>TODO</h2>
       <FontAwesomeIcon icon={faBars} size="2x" className="icon" />
     </TodoNavigation>
   );

@@ -35,13 +35,13 @@ const TodoHeadBlock = styled.div`
     position: absolute;
     top: 22px;
     left: 30px;
-    font-size: 32px;
+    font-size: 1.5rem;
     color: white;
   }
   span {
     margin-top: 10px;
     color: white;
-    font-size: 24px;
+    font-size: 1.2rem;
   }
 `;
 

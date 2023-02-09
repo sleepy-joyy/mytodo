@@ -5,7 +5,7 @@ import { RxBox } from "react-icons/rx";
 import { CgCheckR } from "react-icons/cg";
 
 const Delete = styled.div`
-  font-size: 25px;
+  font-size: 20px;
   padding-right: 15px;
   color: #dee2e6;
   cursor: pointer;
@@ -54,7 +54,7 @@ const CheckBox = styled.div`
 
 const Text = styled.div`
   flex: 1;
-  font-size: 26px;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #e3e6e8;
   ${(props) =>
@@ -62,7 +62,7 @@ const Text = styled.div`
     css`
       color: #ced4da;
       text-decoration: line-through;
-      font-size: 26px;
+      font-size: 1.3rem;
       font-weight: 400;
     `}
 `;

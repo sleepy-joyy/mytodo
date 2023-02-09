@@ -33,15 +33,14 @@ const Input = styled.input`
   color: white;
   ::placeholder {
     color: white;
-    font-family: "GangwonEduSaeeum_OTFMediumA";
-    font-size: 25px;
+    font-family: "Pretendard";
+    font-size: 1.2rem;
   }
   &:focus {
     outline: 2px solid rgba(200, 168, 157, 0.41);
     color: white;
-    font-family: "GangwonEduSaeeum_OTFMediumA";
-    font-weight: 700;
-    font-size: 25px;
+    font-family: "Pretendard";
+    font-size: 1.2rem;
   }
 `;
 

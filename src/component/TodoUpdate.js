@@ -28,16 +28,16 @@ const UpdateBackground = styled.div`
 `;
 
 const UpdateForm = styled.form`
-  width: 50vw;
-  height: 50vh;
+  width: 60vw;
+  height: 40vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   position: relative;
   z-index: 100;
   border-radius: 20px;
-  background-color: rgba(255, 238, 221, 0.75);
+  background-color: rgba(255, 238, 221, 0.45);
   animation: modal-show 1s;
   @keyframes modal-show {
     from {
@@ -54,14 +54,14 @@ const UpdateForm = styled.form`
     position: relative;
     font-size: 40px;
     position: absolute;
-    top: 20px;
-    left: 90%;
-    color: #bcaaa4;
+    top: 30px;
+    left: 85%;
+    color: #ffeedd;
     z-index: 200;
   }
   h3 {
-    color: #bcaaa4;
-    font-size: 45px;
+    color: #ffeedd;
+    font-size: 2rem;
     font-weight: 600;
     text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
       1px 1px 1px rgba(0, 0, 0, 0.5);
@@ -80,21 +80,30 @@ const UpdateInput = styled.input`
   z-index: 150;
   color: #ffeedd;
   font-weight: 700;
-  font-size: 35px;
-  font-family: "GangwonEduSaeeum_OTFMediumA";
+  font-size: 1.5rem;
+  margin: 60px;
+  font-family: "Pretendard";
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(0, 0, 0, 0.5);
-
   &:focus {
     outline: none;
     border-radius: 5px;
-    background-color: #c8a89d;
+    animation: input-show 1s;
+    @keyframes input-show {
+      from {
+        background-color: rgba(255, 238, 221, 0);
+      }
+      to {
+        background-color: rgba(255, 238, 221, 0.35);
+      }
+    }
+    background-color: rgba(255, 238, 221, 0.35);
   }
 `;
 
 const SendButton = styled.button`
   background: transparent;
-  font-family: "GangwonEduSaeeum_OTFMediumA";
+  font-family: "Pretendard";
   border-radius: 4px;
   border: none;
   background: rgba(224, 224, 224, 0.25);
@@ -105,8 +114,8 @@ const SendButton = styled.button`
   margin-bottom: 60px;
   cursor: pointer;
   text-align: center;
-  font-size: 40px;
-  color: #bcaaa4;
+  font-size: 1.5rem;
+  color: #ffeedd;
   position: relative;
   z-index: 80;
   display: flex;

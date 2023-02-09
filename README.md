@@ -1,6 +1,7 @@
-![TODO1](https://user-images.githubusercontent.com/115705457/216773587-5b039761-1321-42b1-a93d-3c4d06767f69.gif)
+![create1](https://user-images.githubusercontent.com/115705457/217782019-b59d5c6b-67dc-41e8-8322-ba87cdbd7a8b.gif)
+![update](https://user-images.githubusercontent.com/115705457/217781614-cb249d04-33c4-4e1f-9ded-e60dfd2c5f82.gif)
+![delete](https://user-images.githubusercontent.com/115705457/217781638-71c06a86-d3cc-462c-b2ff-de8eb82202cc.gif)
 
-![todo2](https://user-images.githubusercontent.com/115705457/216773585-1f725698-0848-477b-8537-42a376a3dde0.gif)
 
 # TODO List 만들기
 

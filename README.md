@@ -1,5 +1,3 @@
-<img width="602" alt="image" src="https://user-images.githubusercontent.com/115705457/214111665-c0dbca0f-5050-4e1a-80d3-7280ad478ce7.png">
-
 ![TODO1](https://user-images.githubusercontent.com/115705457/216773587-5b039761-1321-42b1-a93d-3c4d06767f69.gif)
 
 ![todo2](https://user-images.githubusercontent.com/115705457/216773585-1f725698-0848-477b-8537-42a376a3dde0.gif)

@@ -3,17 +3,22 @@
     {
       "id": 1,
       "text": "상세페이지 UX개선",
-      "checked": false
+      "checked": true
     },
     {
-      "id": 2,
-      "text": "반달이랑 산책가기",
-      "checked": false
+      "id": "4d28ae4c-2518-4716-bab1-d66f4b12b99e",
+      "text": "춘식이랑 마라탕약속",
+      "checked": true
     },
     {
-      "id": 3,
-      "text": "포케 재료 사기",
-      "checked": false
+      "id": "92309312-5ffd-47de-9832-937ead3e3e90",
+      "text": "반달이 간식",
+      "checked": true
+    },
+    {
+      "id": "0ccb9791-e88a-4934-a923-8f2c19353b23",
+      "text": "프로도 파티 RSVP 거절하기",
+      "checked": true
     }
   ]
 }

@@ -3,16 +3,16 @@
     {
       "id": 1,
       "text": "상세페이지 UX개선",
-      "checked": true
+      "checked": false
     },
     {
       "id": 2,
-      "text": "반달이랑 등산가기",
+      "text": "반달이랑 산책가기",
       "checked": false
     },
     {
       "id": 3,
-      "text": "줌 미팅 11 시 ",
+      "text": "포케 재료 사기",
       "checked": false
     }
   ]

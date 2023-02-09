@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
+import { v4 as uuid } from "uuid";
 // import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import TodoTemplate from "./component/TodoTemplate";
 import TodoNav from "./component/TodoNav";
@@ -88,7 +89,7 @@ function App() {
       return alert("할 일을 입력해 주세요");
     } else {
       const todo = {
-        id: todos.length + 1,
+        id: uuid(),
         text,
         checked: false,
       };
